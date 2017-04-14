@@ -1,0 +1,5 @@
+*.DS_Store
+*.vagrant
+*.idea
+*lits_webapp.iml
+#*/webapp/db_key.ini --enable when finished
