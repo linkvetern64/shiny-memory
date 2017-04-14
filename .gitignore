@@ -1,5 +1,6 @@
 *.DS_Store
-*.vagrant
-*.idea
+.vagrant
+.idea
 *lits_webapp.iml
-#*/webapp/db_key.ini --enable when finished
+*/webapp/db_key.ini --enable when finished
+.git
