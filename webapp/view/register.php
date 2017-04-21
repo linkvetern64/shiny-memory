@@ -33,8 +33,8 @@
 
 
     //sanitize post and send it through
-    if($db->submit($_POST)){
-        header("Location:home.php");
+    if($db->submitNewAccount($_POST)){
+        header("Location:index.php");
     }
     else{
         //Kick back with updated webpage displaying detail problems

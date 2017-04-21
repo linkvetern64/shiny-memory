@@ -49,6 +49,60 @@ class DB {
     }
 
     /**
+     * @param $data - Contains $_POST data of users information
+     * @return bool - true if the submission was a success
+     * @Description: This will submit a new account to the database.
+     * The password is salted and hashed and encrypted with blowfish
+     * encryption.
+     */
+    public function submitNewAccount($data){
+        $table = "accounts";
+        try{
+            $conn = $this->connect();
+            $stmt = $conn->prepare("INSERT INTO accounts (email, password, firstname)
+                                    VALUES (:email, :password, :firstname)");
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':password', $password);
+            $stmt->bindParam(':firstname', $firstname);
+
+            $email = $data["email"];
+            $password = $data["password"];
+            $firstname = $data["firstname"];
+
+            $stmt->execute();
+        }
+        catch(PDOException $e){
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * @param $user
+     * @param $pass
+     * @return array|bool
+     */
+    public function authorize($ID, $pass){
+        $table = "accounts";
+        try {
+            $conn = $this->connect();
+            $stmt = $conn->prepare("select password from $table WHERE email = '" . $ID . "'");
+            $stmt->execute();
+            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+            $result = $stmt->fetchAll();
+
+            $conn = null;
+
+            return $result[0]["password"];
+        }
+        catch(PDOException $e){
+            echo $e;
+            return false;
+        }
+    }
+
+    /**
      * @param $ID
      * @return array|bool|string
      */
@@ -77,18 +131,17 @@ class DB {
      * @return array|bool|string
      */
     public function getName($ID){
-        $table = "LIBRARY_Student_Apps";
+        $table = "accounts";
         try {
             $conn = $this->connect();
-            $stmt = $conn->prepare("SELECT * FROM $table WHERE campusID = '" . $ID . "'");
+            $stmt = $conn->prepare("SELECT * FROM accounts WHERE email = '" . $ID . "'");
             $stmt->execute();
             $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $result = $stmt->fetchAll();
 
             $conn = null;
-
             foreach ($result as $k => $v) {
-                return $v["firstName"] . " " . $v["lastName"];
+                return $v["firstname"];
             }
 
             return $result;

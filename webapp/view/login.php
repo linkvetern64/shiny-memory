@@ -7,6 +7,7 @@ $pass = $db->authorize($_POST["email"], $_POST["password"]);
 $_SESSION["name"] = $db->getName($_POST["email"]);
 $_SESSION["email"] = $_POST["email"];
 $_SESSION["auth"] = false;
+
 if ( hash_equals($pass, crypt($_POST["password"], $pass)) ) {
     $_SESSION["auth"] = true;
 }
@@ -20,10 +21,12 @@ if ( hash_equals($pass, crypt($_POST["password"], $pass)) ) {
  */
 if($_SESSION["auth"]){
     $_SESSION["wrongPass"] = false;
-    header("Location:home.php");
+    header("Location:index.php");
 }
 else{
     $_SESSION["wrongPass"] = true;
-    header("Location:index.php");
+    //header("Location:index.php");
+    //Redirect to error page
+    echo "Error logging in";
 }
 
