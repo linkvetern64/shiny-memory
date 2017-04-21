@@ -10,6 +10,6 @@
 
     $result = $db->test();
     foreach ($result as $k => $v) {
-        echo($v["ID"] . " " . $v["mood"] . " " . $v["timestamp"] . "<br />");
+        echo("ID = " . $v["ID"] . " Mood = " . $v["mood"] . " Time = " . $v["timestamp"] . "<br />");
     }
 ?>
