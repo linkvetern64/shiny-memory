@@ -64,24 +64,23 @@
 <body>
     Backend testing: <br>
     <form action="register.php" method="post" id="registration">
-        <label>E-mail: <input type="text" name="email"></label>
-        <label>Password: <input type="text" name="password"></label>
-        <label>First Name: <input type="text" name="firstname"></label>
+        <label>E-mail: <input type="text" id="regEmail" name="email"></label>
+        <label>Password: <input type="text" id="regPass" name="password"></label>
+        <label>First Name: <input type="text" id="regFname" name="firstname"></label>
         <button type="submit" class="btn btn-info">Register</button>
     </form>
-    <br />
-    <br />
-    <br />
+
+    <div id="registerButtonSpan">
+        <button onclick="register()">Test</button>
+    </div>
+
+
+    <br /><br /><br />
     <span style="font-size:3em;color:red;">
-        <?php
-        if(isset($_SESSION["name"])) {
-            echo "Hello " . $_SESSION["name"];
-        }
-        ?>
+        <?php if(isset($_SESSION["name"])) { echo "Hello " . $_SESSION["name"];} ?>
     </span>
-    <br />
-    <br />
-    <br />
+    <br /><br /><br />
+
     <form action="login.php" method="post">
         <label>E-mail: <input type="text" name="email"></label>
         <label>Password: <input type="text" name="password"></label>

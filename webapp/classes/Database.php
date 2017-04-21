@@ -97,7 +97,6 @@ class DB {
             return $result[0]["password"];
         }
         catch(PDOException $e){
-            echo $e;
             return false;
         }
     }

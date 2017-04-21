@@ -16,6 +16,50 @@ function updateView(){
 }
 
 
+/*page(var int);
+ *Parameters(pageNo), number, which will determine which page to load
+ *Desc: Used to paginate the active listings on the profile screen
+ *
+ */
+function register(){
+    var email = document.getElementById("regEmail").value;
+    var password = document.getElementById("regPass").value;
+    var fname = document.getElementById("regFname").value;
+
+    if(!email.length || !password.length || !fname.length){
+        console.log("Email, Password, or name is not entered");
+        return false;
+    }
+
+    new Ajax.Request( "register.php",
+        {
+            method: "post",
+            parameters: {email : email,
+                         password : password,
+                         firstname: fname},
+            onSuccess: registerSuccess,
+            onFailure: registerFailure
+        }
+    );
+}
+
+function registerSuccess(ajax){
+    console.log("SUCCESS");
+
+    document.getElementById("registerButtonSpan").innerHTML = "<span class='glyphicon glyphicon-ok'></span>Account Created Successfully!";
+    document.getElementById("registerButtonSpan").style = "color:#5cb85c;";
+    //console.log(ajax.responseText);
+    //Clear the ID's
+}
+
+function registerFailure(ajax){
+    console.log("FAILURE");
+    //console.log(ajax.responseText);
+    //Clear the ID's
+}
+
+/**/
+
 function updateCart(){
     var id = 1;
     new Ajax.Request( "cart.php",

@@ -34,11 +34,11 @@
 
     //sanitize post and send it through
     if($db->submitNewAccount($_POST)){
-        header("Location:index.php");
+       // header("Location:index.php");
     }
     else{
         //Kick back with updated webpage displaying detail problems
-        header("Location:index.php");
+        header("Location:error.php");
     }
 
     // Make an ajax call that verifies information on the fly.
