@@ -36,7 +36,7 @@ class DB {
         $password = $cred["password"];
         $dbname = $cred["dbname"];
 
-
+        echo $username;
         try{
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             // set the PDO error mode to exception
