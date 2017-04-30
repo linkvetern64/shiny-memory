@@ -65,22 +65,39 @@ require_once(dirname(__FILE__) . '/../load.php');
     </script>
 </head>
 <body>
-<!-- Modify action to .php script you want to execute on submit -->
-<form id="container" action="" method="POST">
-    <!-- Adds title with sub-title -->
-    <span class="header-title text-center">Template 1</span>
-    <span class="header-sub text-center">Subtext</span>
-    <br /><br /><br />
-    <!-- -->
-    <div class="col-3">
-        <input type="text" name="email" class="form-control login-field f-left" placeholder="email">
-        <input type="password" name="password" class="form-control login-field f-right" placeholder="password">
+    <!-- Navbar 54px tall, 12padding top and bottom-->
+    <nav class="navbar navbar-inverse navbar-fixed-top nav-custom">
+        <div class="col-lg-2">
+            <div class="input-group">
+                <form action="error.php" method="GET">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div id="container">
+        <!-- Modify action to .php script you want to execute on submit -->
+        <form id="login-container" action="" method="POST">
+            <!-- Adds title with sub-title -->
+            <span class="header-title text-center">Template 1</span>
+            <span class="header-sub text-center">Subtext</span>
+            <br /><br /><br />
+
+            <!-- -->
+            <div class="col-3">
+                <input type="text" name="email" class="form-control login-field f-left" placeholder="email">
+                <input type="password" name="password" class="form-control login-field f-right" placeholder="password">
+            </div>
+
+            <!-- -->
+            <span class="EULA"> By signing up you agree to privacy policy and end-user license agreement. </span>
+
+            <!-- -->
+            <submit id="sign-up" class="btn btn-success">Sign up</submit>
+        </form>
+        <div id="apps">
+            <a href='http://play.google.com/store/?pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' class="img-float f-left"><img alt='Get it on Google Play' class="img-resize" src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
+            <a href='' class="img-float f-right"><img alt='Get it on App Store' class="img-resize" src='img/app-store-button.png'/></a>
+        </div>
     </div>
-
-    <!-- -->
-    <span class="EULA"> By signing up you agree to privacy policy and end-user license agreement. </span>
-
-    <!-- -->
-    <submit id="sign-up" class="btn btn-success">Sign up</submit>
-</form>
 </body>
