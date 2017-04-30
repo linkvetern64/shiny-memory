@@ -70,7 +70,8 @@ require_once(dirname(__FILE__) . '/../load.php');
         <div class="col-lg-2">
             <div class="input-group">
                 <form action="error.php" method="GET">
-                    <input type="text" class="form-control" placeholder="Search...">
+                    <!-- Add search, buttons, badges -->
+                    <!-- <input type="text" class="form-control" placeholder="Search..."> -->
                 </form>
             </div>
         </div>
