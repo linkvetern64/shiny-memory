@@ -1,8 +1,12 @@
 <?php
-    /*import headers*/
-    session_start();
-    require_once(dirname(__FILE__) . '/../load.php');
-
+/**
+ * Created by:
+ * User: Josh
+ * Date: 4/29/2017
+ * Time: 6:58 PM
+ */
+session_start();
+require_once(dirname(__FILE__) . '/../load.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +28,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <!-- Theme CSS -->
-    <link href="css/styles.css" type="text/css" rel="stylesheet">
+    <!--<link href="css/styles.css" type="text/css" rel="stylesheet">-->
+    <link href="css/concept.css" type="text/css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -58,60 +63,24 @@
         });
 
     </script>
-
-
 </head>
 <body>
-    Backend testing: <br>
-    <form action="register.php" method="post" id="registration">
-        <label>E-mail: <input type="text" id="regEmail" name="email"></label>
-        <label>Password: <input type="text" id="regPass" name="password"></label>
-        <label>First Name: <input type="text" id="regFname" name="firstname"></label>
-        <button type="submit" class="btn btn-info">Register</button>
-    </form>
-
-    <div id="registerButtonSpan">
-        <button onclick="register()">Test</button>
+<!-- Modify action to .php script you want to execute on submit -->
+<form id="container" action="" method="POST">
+    <!-- Adds title with sub-title -->
+    <span class="header-title text-center">Template 1</span>
+    <span class="header-sub text-center">Subtext</span>
+    <br /><br /><br />
+    <!-- -->
+    <div class="col-3">
+        <input type="text" name="email" class="form-control login-field f-left" placeholder="email">
+        <input type="password" name="password" class="form-control login-field f-right" placeholder="password">
     </div>
 
+    <!-- -->
+    <span class="EULA"> By signing up you agree to privacy policy and end-user license agreement. </span>
 
-    <br /><br /><br />
-    <span style="font-size:3em;color:red;">
-        <?php
-            if(isset($_SESSION["name"])) {
-                echo "Hello " . $_SESSION["name"];
-            }
-        ?>
-    </span>
-    <br /><br /><br />
-
-
-
-    <form action="login.php" method="post">
-        <label>E-mail: <input type="text" name="email"></label>
-        <label>Password: <input type="text" name="password"></label>
-        <button type="submit" class="btn btn-success">Login</button>
-    </form>
-    <form action="logout.php"><button type="submit" class="btn btn-danger">Logout</button></form>
-    <br /><br /><br />
-
-    <span style="font-size:2em;color:green;">
-        <?php
-            if($_SESSION["wrongPass"]) {
-                echo "Error Logging in. ";
-                var_dump($_SESSION);
-            }
-        ?>
-    </span>
-
-
-    <!-- Javascript Imports Below -->
-    <!-- Custom Javascript -->
-    <script src="js/ajax.js"></script>
-    <script src="js/libs.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!-- End Javascript Imports -->
+    <!-- -->
+    <submit id="sign-up" class="btn btn-success">Sign up</submit>
+</form>
 </body>
-</html>
