@@ -24,8 +24,10 @@ function updateView(){
 function register(){
     var email = document.getElementById("regEmail").value;
     var password = document.getElementById("regPass").value;
-    var fname = document.getElementById("regFname").value;
 
+
+    //var fname = document.getElementById("regFname").value;
+    var fname = "dank"
     if(!email.length || !password.length || !fname.length){
         console.log("Email, Password, or name is not entered");
         return false;

@@ -78,7 +78,7 @@ require_once(dirname(__FILE__) . '/../load.php');
     </nav>
     <div id="container">
         <!-- Modify action to .php script you want to execute on submit -->
-        <form id="login-container" action="" method="POST">
+        <form id="login-container" action="register.php" method="POST">
             <!-- Adds title with sub-title -->
             <span class="header-title text-center">Template 1</span>
             <span class="header-sub text-center">Subtext</span>
@@ -86,19 +86,45 @@ require_once(dirname(__FILE__) . '/../load.php');
 
             <!-- -->
             <div class="col-3">
-                <input type="text" name="email" class="form-control login-field f-left" placeholder="email">
-                <input type="password" name="password" class="form-control login-field f-right" placeholder="password">
+                <input type="text" id="regEmail" name="email" class="form-control login-field f-left" placeholder="email">
+                <input type="password" id="regPass" name="password" class="form-control login-field f-right" placeholder="password">
             </div>
 
             <!-- -->
             <span class="EULA"> By signing up you agree to privacy policy and end-user license agreement. </span>
 
             <!-- -->
-            <submit id="sign-up" class="btn btn-success">Sign up</submit>
+            <div id="registerButtonSpan">
+                <submit onclick="register()" id="sign-up" class="btn btn-success">Sign up</submit>
+            </div>
         </form>
         <div id="apps">
             <a href='http://play.google.com/store/?pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' class="img-float f-left"><img alt='Get it on Google Play' class="img-resize" src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
             <a href='' class="img-float f-right"><img alt='Get it on App Store' class="img-resize" src='img/app-store-button.png'/></a>
         </div>
     </div>
+
+    <!-- Javascript Imports Below -->
+    <!-- Custom Javascript -->
+    <script src="js/ajax.js"></script>
+    <script src="js/libs.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- End Javascript Imports -->
+
 </body>
+<!--
+
+<form action="register.php" method="post" id="registration">
+        <label>E-mail: <input type="text" id="regEmail" name="email"></label>
+        <label>Password: <input type="text" id="regPass" name="password"></label>
+        <label>First Name: <input type="text" id="regFname" name="firstname"></label>
+        <button type="submit" class="btn btn-info">Register</button>
+    </form>
+
+    <div id="registerButtonSpan">
+        <button onclick="register()">Test</button>
+    </div>
+
+->
